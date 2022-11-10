@@ -1,21 +1,24 @@
 import { useState } from 'react';
-import { 
+import {
+  Avatar,
   Box,
   Button,
   Card,
   CardActions,
   CardContent,
   CircularProgress,
+  Link,
   TextField,
   Typography
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
 import { useAuthContext } from '../../../contexts';
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
-  password: yup.string().required().min(6),
+  password: yup.string().min(6).required(),
 });
 
 interface ILogin {
@@ -31,6 +34,8 @@ export const Login: React.FC<ILogin> = ({ children }) => {
   const [emailError, setEmailError] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     setIsLoading(true);
@@ -56,14 +61,24 @@ export const Login: React.FC<ILogin> = ({ children }) => {
       });
   };
 
-  if (isAuthenticated) return ( <>{children}</> );
+  if (isAuthenticated) return (<>{children}</>);
 
   return (
     <Box width='100vw' height='100vh' display='flex' alignItems='center' justifyContent='center'>
 
       <Card>
         <CardContent>
-          <Box display='flex' flexDirection='column' gap={2} width={260}>
+          <Box display='flex' alignItems="center" flexDirection='column' gap={2} width={260}>
+            <Box
+              width="100%"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Avatar
+                src="https://avatars.githubusercontent.com/u/6412038?s=280&v=4"
+              />
+            </Box>
             <Typography variant='h6' align='center'>Login</Typography>
 
             <TextField
@@ -94,7 +109,7 @@ export const Login: React.FC<ILogin> = ({ children }) => {
           </Box>
         </CardContent>
         <CardActions>
-          <Box width='100%' display='flex' justifyContent='center'>
+          <Box width='100%' display='flex' alignItems="center" justifyContent='center' flexDirection='column' gap={2}>
 
             <Button
               variant='contained'
@@ -104,6 +119,8 @@ export const Login: React.FC<ILogin> = ({ children }) => {
             >
               Login
             </Button>
+
+            <Link style={{cursor:'pointer'}} onClick={() => navigate('/register')}>Register</Link>
 
           </Box>
         </CardActions>

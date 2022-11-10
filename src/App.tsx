@@ -8,15 +8,15 @@ const App = () => {
   return (
     <AuthProvider>
       <AppThemeProvider>
-        <Login>
-          <DrawerProvider>
-            <BrowserRouter>
+        <BrowserRouter>
+          <Login>
+            <DrawerProvider>
               <Sidebar>
                 <AppRoutes />
               </Sidebar>
-            </BrowserRouter>
-          </DrawerProvider>
-        </Login>
+            </DrawerProvider>
+          </Login>
+        </BrowserRouter>
       </AppThemeProvider>
     </AuthProvider>
   );
