@@ -1,9 +1,11 @@
+import { Box, Typography } from '@mui/material';
+
 const Profile = () => {
   return (
-    <div>
-      <h1>Profile Screen</h1>
-    </div>
+    <Box>
+      <Typography variant='h4' align="center">Profiles</Typography>
+    </Box>
   );
 };
-  
+
 export default Profile;

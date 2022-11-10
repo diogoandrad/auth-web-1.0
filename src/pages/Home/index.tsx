@@ -1,9 +1,11 @@
+import { Box, Typography } from '@mui/material';
+
 const Home = () => {
   return (
-    <div>
-      <h1>Home Screen</h1>
-    </div>
+    <Box>
+      <Typography variant='h4' align="center">Home</Typography>
+    </Box>
   );
 };
-  
+
 export default Home;

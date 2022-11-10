@@ -1,9 +1,11 @@
+import { Box, Typography } from '@mui/material';
+
 const NoPage = () => {
   return (
-    <div>
-      <h1>NoPage Screen</h1>
-    </div>
+    <Box>
+      <Typography variant='h4' align="center">Page Not Found</Typography>
+    </Box>
   );
 };
-  
+
 export default NoPage;

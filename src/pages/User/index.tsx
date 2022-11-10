@@ -1,9 +1,11 @@
+import { Box, Typography } from '@mui/material';
+
 const User = () => {
   return (
-    <div>
-      <h1>User Screen</h1>
-    </div>
+    <Box>
+      <Typography variant='h4' align="center">Users</Typography>
+    </Box>
   );
 };
-  
+
 export default User;
