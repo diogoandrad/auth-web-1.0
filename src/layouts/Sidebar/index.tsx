@@ -122,7 +122,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
           justifyContent="center"
         >
           <Avatar
-            sx={{ height: theme.spacing(4), width: theme.spacing(4), marginRight: '4%' }}
+            sx={{ height: theme.spacing(4), width: theme.spacing(4), mr: 2 }}
             src="https://avatars.githubusercontent.com/u/6412038?s=280&v=4"
           />
           <Typography variant='h6'>React App</Typography>
@@ -142,7 +142,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
         }}
       >
         <Toolbar />
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Container maxWidth="lg" sx={{ mt: 2, mb: 2 }}>
           {children}
           <Footer />
         </Container>
