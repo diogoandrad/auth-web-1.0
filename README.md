@@ -2,8 +2,6 @@
 
 Arquitetura em SPA.
 
-* Backend: https://github.com/diogoandrad/auth-api.git
-
 # :computer: Technologies
 
 :small_blue_diamond: [ReactJs](https://reactjs.org/)
