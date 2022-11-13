@@ -18,12 +18,12 @@ interface IAuthProvider {
 
 export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
   const [accessToken, setAccessToken] = useState<string>();
-  const LOCAL_STORAGE_KEY__ACCESS_TOKEN = 'access_token';
+  const LOCAL_STORAGE_KEY__ACCESS_TOKEN = 'x-access-token';
 
   useEffect(() => {
     const accessToken = localStorage.getItem(LOCAL_STORAGE_KEY__ACCESS_TOKEN);
     if (accessToken) {
-      setAccessToken(JSON.parse(accessToken));
+      setAccessToken(accessToken);
     } else {
       setAccessToken(undefined);
     }
@@ -34,7 +34,7 @@ export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
     if (result instanceof Error) {
       return result.message;
     } else {
-      localStorage.setItem(LOCAL_STORAGE_KEY__ACCESS_TOKEN, JSON.stringify(result.accessToken));
+      localStorage.setItem(LOCAL_STORAGE_KEY__ACCESS_TOKEN, result.accessToken);
       setAccessToken(result.accessToken);
     }
   }, []);

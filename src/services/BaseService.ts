@@ -1,9 +1,9 @@
-import { Api } from './Api';
+import { Api, headers } from './Api';
 
 export default class BaseService {
 
   public static async getAll(path: string): Promise<any> {
-    return await Api.get(path)
+    return await Api.get(path, { headers: headers })
       .then((response) => {
         return response.data;
       })
