@@ -61,19 +61,24 @@ const Profile = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {profiles.map((row: IProfile) => (
-              <TableRow key={row.id}>
-                <TableCell>{row.name}</TableCell>
-                <TableCell align='center' width="10%">
-                  <IconButton aria-label="edit" size='small'>
-                    <EditIcon fontSize="small" />
-                  </IconButton>
-                  <IconButton aria-label="delete" size='small' onClick={handleOpen}>
-                    <DeleteIcon fontSize="small" />
-                  </IconButton>
-                </TableCell>
+            {profiles.length === 0 ?
+              <TableRow>
+                <TableCell align='center' colSpan={2}>No results found</TableCell>
               </TableRow>
-            ))}
+              : profiles.map((row: IProfile) => (
+                <TableRow key={row.id}>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell align='center' width="10%">
+                    <IconButton aria-label="edit" size='small'>
+                      <EditIcon fontSize="small" />
+                    </IconButton>
+                    <IconButton aria-label="delete" size='small' onClick={handleOpen}>
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              ))
+            }
           </TableBody>
         </Table>
       </TableContainer>
