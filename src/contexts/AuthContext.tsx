@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-
+import { isExpired } from 'react-jwt';
 import { AuthService } from '../services/AuthService';
 
 interface IAuthContext {
@@ -22,11 +22,12 @@ export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
 
   useEffect(() => {
     const accessToken = localStorage.getItem(LOCAL_STORAGE_KEY__ACCESS_TOKEN);
-    if (accessToken) {
+    if (isExpired(JSON.stringify(accessToken)))
+      handleLogout();
+    else if (accessToken)
       setAccessToken(accessToken);
-    } else {
+    else
       setAccessToken(undefined);
-    }
   }, []);
 
   const handleLogin = useCallback(async (email: string, password: string) => {
