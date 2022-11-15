@@ -7,14 +7,12 @@ import {
   CardActions,
   CardContent,
   CircularProgress,
-  Link,
   TextField,
   Typography
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import * as yup from 'yup';
-
+import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../../contexts';
+import * as yup from 'yup';
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -34,8 +32,6 @@ export const Login: React.FC<ILogin> = ({ children }) => {
   const [emailError, setEmailError] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-
-  const navigate = useNavigate();
 
   const handleSubmit = () => {
     setIsLoading(true);
@@ -64,11 +60,22 @@ export const Login: React.FC<ILogin> = ({ children }) => {
   if (isAuthenticated) return (<>{children}</>);
 
   return (
-    <Box width='100vw' height='100vh' display='flex' alignItems='center' justifyContent='center'>
-
+    <Box 
+      width='100vw' 
+      height='100vh' 
+      display='flex' 
+      alignItems='center' 
+      justifyContent='center'
+    >
       <Card>
         <CardContent>
-          <Box display='flex' alignItems="center" flexDirection='column' gap={2} width={260}>
+          <Box 
+            display='flex' 
+            alignItems="center" 
+            flexDirection='column' 
+            width={260}
+            gap={2} 
+          >
             <Box
               width="100%"
               display="flex"
@@ -80,7 +87,6 @@ export const Login: React.FC<ILogin> = ({ children }) => {
               />
             </Box>
             <Typography variant='h6' align='center'>Login</Typography>
-
             <TextField
               fullWidth
               variant="standard"
@@ -93,7 +99,6 @@ export const Login: React.FC<ILogin> = ({ children }) => {
               onKeyDown={() => setEmailError('')}
               onChange={e => setEmail(e.target.value)}
             />
-
             <TextField
               fullWidth
               variant="standard"
@@ -109,19 +114,28 @@ export const Login: React.FC<ILogin> = ({ children }) => {
           </Box>
         </CardContent>
         <CardActions>
-          <Box width='100%' display='flex' alignItems="center" justifyContent='center' flexDirection='column' gap={2}>
-
+          <Box 
+            width='100%' 
+            display='flex' 
+            alignItems="center" 
+            justifyContent='center' 
+            flexDirection='column' 
+            gap={2}
+          >
             <Button
               variant='contained'
               disabled={isLoading}
               onClick={handleSubmit}
-              endIcon={isLoading ? <CircularProgress variant='indeterminate' color='inherit' size={20} /> : undefined}
+              endIcon={isLoading ? 
+                <CircularProgress 
+                  variant='indeterminate' 
+                  color='inherit' 
+                  size={20} /> : 
+                undefined}
             >
               Login
             </Button>
-
-            <Link style={{cursor:'pointer'}} onClick={() => navigate('/register')}>Register</Link>
-
+            <Link to='/register'>Register</Link>
           </Box>
         </CardActions>
       </Card>
