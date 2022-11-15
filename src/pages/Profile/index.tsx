@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import BaseService from '../../services/BaseService';
 import { IProfile } from '../../models/Profile';
 
@@ -36,6 +37,8 @@ const Profile = () => {
 
   const [open, setOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -48,7 +51,7 @@ const Profile = () => {
     <Box>
       <Typography variant='h4' align="center" sx={{ mb: 2 }}>
         Profiles
-        <IconButton aria-label="edit">
+        <IconButton aria-label="edit" onClick={() => navigate('/profiles/create')}>
           <AddCircleIcon />
         </IconButton>
       </Typography>
