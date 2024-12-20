@@ -1,6 +1,6 @@
-# Project
+# Auth WEB 1.0
 
-Arquitetura em SPA.
+The project uses a Single Page Application (SPA) architecture and is built based on a component-driven structure.
 
 # :computer: Technologies
 
