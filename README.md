@@ -18,12 +18,12 @@ The project uses a Single Page Application (SPA) architecture and is built based
 
 Clone the project:
 ```bash
-git clone https://github.com/diogoandrad/auth-spa.git
+git clone https://github.com/diogoandrad/auth-web-1.0.git
 ```
 
 Enter the project folder:
 ```bash
-cd auth-spa
+cd auth-web-1.0
 ```
 
 Install dependencies:
